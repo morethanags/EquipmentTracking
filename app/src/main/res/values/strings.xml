@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Equipment Tracking</string>
+    <string name="url_path">http://wsprd.perulng.com:8122/InventoryApp/api</string>
+</resources>

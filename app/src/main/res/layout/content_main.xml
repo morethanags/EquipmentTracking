@@ -1,0 +1,193 @@
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment"
+    android:name="com.huntloc.aqt.equipmenttracking.MainActivityFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:layout="@layout/fragment_main" >
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+            <TextView
+                android:id="@+id/textView_TagId"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".60"
+                android:gravity="right"
+
+                android:text="NFC Tag ID" />
+            <EditText
+                android:id="@+id/editText_TagId"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".40"
+                android:enabled="false"
+                android:hint="Tap a NFC Tag"
+                android:inputType="number"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           >
+            <TextView
+                android:id="@+id/textView_ServiceTagId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:layout_weight=".60"
+                android:text="Service Tag ID" />
+            <EditText
+                android:id="@+id/editText_ServiceTagId"
+                android:layout_gravity="center_horizontal|top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight=".3"
+                android:enabled="true"
+                android:maxWidth="120dp"
+                android:hint="Service Tag ID"/>
+            <Button
+                android:id="@+id/ib_scan"
+                android:layout_width="50sp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".1"
+                android:background="@android:color/transparent"
+                android:text="Scan" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           >
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".60"
+                android:gravity="right"
+                android:text="Type:"
+                />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinner_type"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".40"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".60"
+                android:gravity="right"
+                android:text="Location:"
+                />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinner_location"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".40"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".60"
+                android:gravity="right"
+                android:text="Condition:"
+                />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinner_condition"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".40"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+           >
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".60"
+                android:gravity="right"
+                android:text="Status:"
+                />
+
+            <android.support.v7.widget.AppCompatSpinner
+                android:id="@+id/spinner_status"
+                style="@style/Widget.AppCompat.Spinner.Underlined"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight=".40"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/imageView_photo"
+                android:layout_width="match_parent"
+                android:maxHeight="200sp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="1"
+                android:adjustViewBounds="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/im_nophotoavailable"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/ib_save"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:drawableTop="@mipmap/ic_action_save"
+                android:background="@android:color/transparent"
+                android:text="Save"
+                />
+            <Button
+                android:id="@+id/ib_cancel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:drawableTop="@mipmap/ic_action_cancel"
+                android:background="@android:color/transparent"
+                android:text="Cancel" />
+        </LinearLayout>
+    </LinearLayout>
+</fragment>
