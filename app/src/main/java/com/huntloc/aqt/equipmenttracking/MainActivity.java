@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ImageView photo;
     JSONObject equipment;
     private NfcAdapter mNfcAdapter;
-    private EditText mTagId, mServiceTag;
+    private EditText mTagId, mServiceTag, mUserName;
     private String pictureImagePath = "";
 
     @Override
@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         mTagId = (EditText) findViewById(R.id.editText_TagId);
         mServiceTag = (EditText) findViewById(R.id.editText_ServiceTagId);
+        mUserName = (EditText) findViewById(R.id.editText_UserName);
         saveButton = (Button) findViewById(R.id.ib_save);
         cancelButton = (Button) findViewById(R.id.ib_cancel);
         photo = (ImageView) findViewById(R.id.imageView_photo);
@@ -230,10 +231,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             try {
                 this.equipment.put("equipmentId", jsonObject.optString("equipmentId"));
                 this.equipment.put("base64Picture", jsonObject.optString("base64Picture"));
+                this.equipment.put("userName", jsonObject.optString("userName"));
+
             } catch (JSONException jsone) {
             }
             mServiceTag.setText(jsonObject.optString("serviceTag"));
-
+            mUserName.setText(jsonObject.optString("userName"));
             setSelected(jsonObject.optInt("typeId"), type);
             setSelected(jsonObject.optInt("locationId"), location);
             setSelected(jsonObject.optInt("conditionId"), condition);
@@ -304,6 +307,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             this.equipment.put("Nfctag", mTagId.getText());
             this.equipment.put("ServiceTag", mServiceTag.getText());
+            this.equipment.put("UserName", mUserName.getText());
 
             this.equipment.put("TypeId", ((Type) type.getSelectedItem()).getTypeId());
             this.equipment.put("StatusId", ((Type) status.getSelectedItem()).getTypeId());
@@ -330,6 +334,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         location.setSelection(0);
         status.setSelection(0);
         condition.setSelection(0);
+        mUserName.setText(null);
         photo.setImageResource(R.drawable.im_nophotoavailable);
         try {
             this.equipment.put("equipmentId", null);
